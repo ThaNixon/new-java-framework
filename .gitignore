@@ -1,5 +1,15 @@
-.gradle
+# Gradle
+.gradle/
 build/
+
+# IDEA
+*.iml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/libraries
+
+.gradle
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -11,7 +21,6 @@ build/
 .idea/compiler.xml
 .idea/libraries/
 *.iws
-*.iml
 *.ipr
 out/
 !**/src/main/**/out/
