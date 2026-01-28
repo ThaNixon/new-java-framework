@@ -10,9 +10,18 @@ repositories {
 }
 
 dependencies {
+    dependencies {
+        constraints {
+            implementation('commons-codec:commons-codec:1.15') {
+                because 'previous versions have vulnerability WS-2019-0379'
+            }
+        }
+    }
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+// Source: https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation 'io.rest-assured:rest-assured:6.0.0'
 }
 
 test {
