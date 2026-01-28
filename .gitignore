@@ -4,10 +4,14 @@ build/
 
 # IDEA
 *.iml
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/vcs.xml
 .idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/libraries
 
 .gradle
 !gradle/wrapper/gradle-wrapper.jar
@@ -16,10 +20,6 @@ build/
 .kotlin
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
 *.iws
 *.ipr
 out/
