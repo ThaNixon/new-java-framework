@@ -5,6 +5,9 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static testdata.TestData.DEFAULT_USER;
+import static testdata.TestData.INVALID_USER;
+
 public class UserControllerTest {
     UserController userController = new UserController();
 
@@ -30,4 +33,26 @@ public class UserControllerTest {
         Assertions.assertEquals("unknown",  createdUserResponse.getType());
         Assertions.assertFalse(createdUserResponse.getMessage().isEmpty());
     }
+
+    @Test
+    void createUserControllerTest2() {
+        Response response = userController.createDefaultUser();
+        AddUserResponse createdUserResponse =  response.as(AddUserResponse.class);
+
+        Assertions.assertEquals(200, response.statusCode());
+        Assertions.assertEquals(200, createdUserResponse.getCode());
+        Assertions.assertEquals("unknown",  createdUserResponse.getType());
+        Assertions.assertFalse(createdUserResponse.getMessage().isEmpty());
+     }
+
+     @Test
+    void createUserControllerTest3() {
+        Response response = userController.createUser(INVALID_USER);
+        AddUserResponse createdUserResponse =  response.as(AddUserResponse.class);
+
+         Assertions.assertEquals(200, response.statusCode());
+         Assertions.assertEquals(200, createdUserResponse.getCode());
+         Assertions.assertEquals("unknown",  createdUserResponse.getType());
+         Assertions.assertFalse(createdUserResponse.getMessage().isEmpty());
+     }
 }
