@@ -14,19 +14,15 @@ ext {
 }
 
 dependencies {
-    // Наш щит против уязвимости
-    implementation 'commons-codec:commons-codec:1.15'
 
-    // Переводчик JSON (Jackson)
-    implementation 'org.apache.commons:commons-lang3:3.17.1'
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
 
-    // REST Assured и JUnit 5
     testImplementation 'io.rest-assured:rest-assured:5.5.0'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
-    // Lombok с использованием переменной
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
     testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
@@ -35,4 +31,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(Test).configureEach {
+    systemProperty "file.encoding", "UTF-8"
 }
